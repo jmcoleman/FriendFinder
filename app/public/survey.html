@@ -149,7 +149,8 @@
     <br>
 
     <!-- Submit Button -->
-    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
      Submit</button>
 
     <hr>
@@ -260,6 +261,13 @@
           $("#results-modal").modal("toggle");
 
         });
+
+        // clear the form
+        //   form.trigger('reset');
+        // $(".form-control").each(function() {
+        //     this.reset();
+        // });
+
       } else {
         alert("Please fill out all fields before submitting!");
       }

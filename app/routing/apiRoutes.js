@@ -60,7 +60,7 @@ router.route('/friends/:name')
             }
         }
 
-        return res.send("Friend not found.");
+        return res.status(404).json("No friend found by the name of " + req.params.name);
     })
     .delete(function(req, res){
         delete friends[req.friendName];
