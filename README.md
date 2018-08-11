@@ -2,9 +2,11 @@
 Friend Finder
 
 **Problem it solves:** \
-Identification of a friend that is the most compatible.\
+Identification of a friend that is the most compatible.
+
 **How solved:** \
-By having each friend respond to a short survery and storing the responses, an individual can be alerted to the friend that is closest in compatibility to them after answering the same survey.\
+By having each friend respond to a short survery and storing the responses, an individual can be alerted to the friend that is closest in compatibility to them after answering the same survey.
+
 **Technical approach:** \
 Leverages express and node to route survey responses and store friends data.  Upon adding a new person, the person with the closest compatibility is shown in a modal.  Responses are compared to each other and a difference is calculated and then added up across all responses for an individual.  The individual with the closes score to the new person is the most compatible.
 
@@ -21,7 +23,7 @@ npm install path
 # start the server
 node server.js
 
-# navigate to the brownser and enter
+# navigate to the browser and enter
 https://localhost:3000
 ```
 
