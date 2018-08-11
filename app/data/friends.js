@@ -3,9 +3,9 @@
 /////////////////////
 var friends = [
     {
-        "name": 'Testname',
-        "photo": 'https://www.pexels.com/photo/women-s-white-and-black-button-up-collared-shirt-774909/',
-        "scores": []
+        "name": 'Margo',
+        "photo": 'https://randomuser.me/api/portraits/women/2.jpg',
+        "scores[]": ["1","2","3","4","5","1","2","3","4","5"]
     }
 ];
 
