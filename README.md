@@ -47,6 +47,8 @@ Testing was done against friends with a range of different scores.
 
 The project should be run from the browser by specifying http://localhost:3000 after starting node.
 
+The project is hosted on heroku at https://gentle-lowlands-38561.herokuapp.com/ 
+
 ## Built With
 
 The following npm packages are used: express, path, body-parser
