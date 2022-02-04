@@ -1,0 +1,61 @@
+:root {
+	--color-light: #caf0f8;
+	--color-dark: #303036;
+	--bg-color-light: #ade8f4;
+	--bg-color-dark: #303036;
+	--color-success: green;
+	--color-error: red;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+}
+
+h2 {
+	font-weight: 300;
+}
+
+header {
+	font-weight: bold;
+	background-color: var(--bg-color-light);
+	padding: 8px;
+	position: sticky;
+	top: 0;
+}
+
+/* error messages for form validation */
+.form-item input.success,
+.form-item select.success {
+	border: 1px solid var(--color-success);
+}
+.form-item input.error,
+.form-item select.error {
+	border: 1px solid var(--color-error);
+}
+
+.icon::before {
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+.form-item span {
+	font-size: 1em;
+}
+
+.form-item span.success::before {
+	font-family: 'Font Awesome 5 Free';
+	content: '\f058';
+	color: var(--color-success);
+	margin-right: 2px;
+}
+
+.form-item span.error::before {
+	content: '\f057';
+	font-family: 'Font Awesome 5 Free';
+	color: var(--color-error);
+	margin-right: 2px;
+}

@@ -1,4 +1,4 @@
-var friends = [
+let friends = [
 	{
 		name: 'Margo',
 		photo: 'https://randomuser.me/api/portraits/women/2.jpg',
