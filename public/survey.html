@@ -31,6 +31,7 @@
 		/>
 
 		<link rel="stylesheet" href="../css/styles.css" />
+		<script type="text/javascript" src="/javascript/survey.js" defer></script>
 	</head>
 
 	<body>
@@ -41,18 +42,19 @@
 		<div class="container">
 			<h3 class="pt-3">About You</h3>
 
-			<form action="survey.html	" method="POST" id="friend-survey" class="">
+			<form id="friend-survey" class="">
 				<div class="form-item mb-3">
 					<label for="name" class="mb-1 d-block">Name (Required)</label>
 					<input
 						type="text"
 						id="name"
-						class="form-control w-50 d-inline-block success"
-						required
+						class="form-control w-50 d-inline-block"
+						autofocus
 					/>
 					<small class="d-block">
-						<span class="icon success text-success">Success message</span>
-						<span class="icon error text-danger d-none">Error message</span>
+						<span class="icon"></span>
+						<!-- <span class="icon success text-success">Success message</span>
+						<span class="icon error text-danger d-none">Error message</span> -->
 					</small>
 				</div>
 
@@ -63,14 +65,10 @@
 					<input
 						type="text"
 						id="photo"
-						class="form-control w-50 d-inline-block error"
-						required
+						class="form-control w-50 d-inline-block"
 					/>
 					<small class="d-block">
-						<span class="icon success text-success d-none"
-							>Success message</span
-						>
-						<span class="icon error text-danger">Error message</span>
+						<span class="icon"></span>
 					</small>
 				</div>
 
@@ -90,8 +88,7 @@
 						<option value="5">5 (Strongly Agree)</option>
 					</select>
 					<small class="d-block">
-						<span class="icon success text-success">Success message</span>
-						<span class="icon error text-danger d-none">Error message</span>
+						<span class="icon"></span>
 					</small>
 				</div>
 
@@ -101,7 +98,7 @@
 						>Generally speaking, you rely more on your experience than your
 						imagination.</label
 					>
-					<select class="form-select ques d-inline-block error" id="q2">
+					<select class="form-select ques d-inline-block" id="q2">
 						<option selected>Choose...</option>
 						<option value="1">1 (Strongly Disagree)</option>
 						<option value="2">2</option>
@@ -110,10 +107,7 @@
 						<option value="5">5 (Strongly Agree)</option>
 					</select>
 					<small class="d-block">
-						<span class="icon success text-success d-none"
-							>Success message</span
-						>
-						<span class="icon error text-danger">Error message</span>
+						<span class="icon"></span>
 					</small>
 				</div>
 
@@ -132,8 +126,7 @@
 						<option value="5">5 (Strongly Agree)</option>
 					</select>
 					<small class="d-block">
-						<span class="icon success text-success">Success message</span>
-						<span class="icon error text-danger">Error message</span>
+						<span class="icon"></span>
 					</small>
 				</div>
 
@@ -151,8 +144,7 @@
 						<option value="5">5 (Strongly Agree)</option>
 					</select>
 					<small class="d-block">
-						<span class="icon success text-success">Success message</span>
-						<span class="icon error text-danger">Error message</span>
+						<span class="icon"></span>
 					</small>
 				</div>
 
@@ -170,8 +162,7 @@
 						<option value="5">5 (Strongly Agree)</option>
 					</select>
 					<small class="d-block">
-						<span class="icon success text-success">Success message</span>
-						<span class="icon error text-danger">Error message</span>
+						<span class="icon"></span>
 					</small>
 				</div>
 
@@ -190,8 +181,7 @@
 						<option value="5">5 (Strongly Agree)</option>
 					</select>
 					<small class="d-block">
-						<span class="icon success text-success">Success message</span>
-						<span class="icon error text-danger">Error message</span>
+						<span class="icon"></span>
 					</small>
 				</div>
 
@@ -210,8 +200,7 @@
 						<option value="5">5 (Strongly Agree)</option>
 					</select>
 					<small class="d-block">
-						<span class="icon success text-success">Success message</span>
-						<span class="icon error text-danger">Error message</span>
+						<span class="icon"></span>
 					</small>
 				</div>
 
@@ -229,8 +218,7 @@
 						<option value="5">5 (Strongly Agree)</option>
 					</select>
 					<small class="d-block">
-						<span class="icon success text-success">Success message</span>
-						<span class="icon error text-danger">Error message</span>
+						<span class="icon"></span>
 					</small>
 				</div>
 
@@ -249,8 +237,7 @@
 						<option value="5">5 (Strongly Agree)</option>
 					</select>
 					<small class="d-block">
-						<span class="icon success text-success">Success message</span>
-						<span class="icon error text-danger">Error message</span>
+						<span class="icon"></span>
 					</small>
 				</div>
 
@@ -269,40 +256,42 @@
 						<option value="5">5 (Strongly Agree)</option>
 					</select>
 					<small class="d-block">
-						<span class="icon success text-success">Success message</span>
-						<span class="icon error text-danger">Error message</span>
+						<span class="icon"></span>
 					</small>
 				</div>
-				<!-- Submit Button -->
-				<button
-					type="submit"
-					class="btn btn-lg btn-block"
-					id="submit"
-					style="background-color: var(--color-dark); color: white"
-				>
-					<i class="far fa-check-circle"></i>
-					Submit
-				</button>
-			</form>
 
-			<br />
-			<hr />
-			<footer class="footer">
-				<div class="container">
-					<p>
-						<a style="color: var(--color-dark)" href="/api/friends"
-							>API Friends List</a
-						>
-						|
-						<a
-							style="color: var(--color-dark)"
-							href="https://github.com/jmcoleman/friendfinder"
-							>GitHub Repo</a
-						>
-					</p>
+				<!-- Submit Button -->
+				<div class="text-right">
+					<button
+						type="submit"
+						class="btn btn-lg btn-block"
+						id="submit-survey"
+						style="background-color: var(--color-dark); color: white"
+					>
+						<i class="far fa-check-circle"></i>
+						Submit
+					</button>
 				</div>
-			</footer>
+			</form>
 		</div>
+
+		<footer class="footer">
+			<div class="container">
+				<br />
+				<hr />
+				<p>
+					<a style="color: var(--color-dark)" href="/api/friends"
+						>API Friends List</a
+					>
+					|
+					<a
+						style="color: var(--color-dark)"
+						href="https://github.com/jmcoleman/friendfinder"
+						>GitHub Repo</a
+					>
+				</p>
+			</div>
+		</footer>
 
 		<!-- Modal -->
 		<div id="results-modal" class="modal fade" role="dialog">
@@ -327,7 +316,5 @@
 				</div>
 			</div>
 		</div>
-
-		<script type="text/javascript" src="/javascript/survey.js"></script>
 	</body>
 </html>

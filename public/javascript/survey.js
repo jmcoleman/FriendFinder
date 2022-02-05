@@ -1,31 +1,72 @@
-// const NAME_REQUIRED = 'Please enter your name'
-// const PHOTO_REQUIRED = 'Please enter the url to your photo'
-// const RESPONSE_REQUIRED = 'Please enter a response to the question.'
 const surveyForm = document.getElementById('friend-survey')
 
-// const validateForm = () => {
-// 	// validate the form
-// 	let isValid = true
+// validate the form
+const validateForm = () => {
+	let isValid = true
 
-// 	// check that the name is valid
-// 	const name = document.getElementById('name')
-// 	if (name.value == '') isValid = false
+	// check that the name is valid
+	const name = document.getElementById('name')
+	if (name.value.trim() == '') {
+		setFieldInvalid(name, 'Name is required')
+		isValid = false
+	} else {
+		setFieldValid(name, 'Valid value')
+	}
 
-// 	// check that the photo url is valid
-// 	const photo = document.getElementById('photo')
-// 	if (photo.value == '') isValid = false
+	// check that the photo url is valid
+	const photo = document.getElementById('photo')
+	let expression =
+		/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi
+	let regex = new RegExp(expression)
+	// console.log(`Value: ${photo.value.trim().match(regex)}`)
+	if (photo.value.trim() == '') {
+		setFieldInvalid(photo, 'Photo url is required')
+		isValid = false
+	} else if (photo.value.trim().match(regex) == null) {
+		setFieldInvalid(photo, 'Invalid url')
+		isValid = false
+	} else {
+		setFieldValid(photo, 'Valid value')
+	}
 
-// 	// check that all questions are answered
-// 	document.querySelectorAll('.ques').forEach((el) => {
-// 		if (!(el.value >= 1 && el.value <= 5)) isValid = false
-// 	})
+	// check that all questions are answered
+	document.querySelectorAll('.ques').forEach((el) => {
+		if (!(el.value >= 1 && el.value <= 5)) {
+			setFieldInvalid(el, 'Select a value')
+			isValid = false
+		} else {
+			setFieldValid(el, 'Valid value')
+		}
+	})
 
-// 	return isValid
-// }
+	return isValid
+}
 
-function surveySubmit() {
+const setFieldInvalid = (el, msg) => {
+	// console.log(`in setFieldInvalid for ${el.id} ...`)
+	el.classList.remove('error', 'success')
+	el.classList.add('error')
+	spanEl = el.nextElementSibling.querySelector('span')
+	spanEl.classList.remove('error', 'text-danger', 'success', 'text-success')
+	spanEl.classList.add('error', 'text-danger')
+	spanEl.innerText = msg || 'Invalid value'
+}
+
+const setFieldValid = (el, msg) => {
+	// console.log(`in setFieldValid for ${el.id} ...`)
+	el.classList.remove('error', 'success')
+	el.classList.add('success')
+	spanEl = el.nextElementSibling.querySelector('span')
+	spanEl.classList.remove('error', 'text-danger', 'success', 'text-success')
+	spanEl.classList.add('success', 'text-success')
+	spanEl.innerText = msg || 'Valid value'
+}
+
+// validate and save the survey
+function surveySubmit(e) {
 	// stop form submission
-	event.preventDefault()
+	console.log('in surveySubmit')
+	e.preventDefault()
 
 	const name = document.getElementById('name')
 	const photo = document.getElementById('photo')
@@ -40,15 +81,30 @@ function surveySubmit() {
 	const q9 = surveyForm['q9']
 	const q10 = surveyForm['q10']
 
-	// if form is not valid return without submitting the form to save
-	// if (!validateForm) return
-	return
+	// if form is not valid, return without submitting the form
+	if (!validateForm()) return
 
 	const friend = {
-		name: name.value,
-		photo: photo.value,
-		score: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10],
+		name: name.value
+			.trim()
+			.toLowerCase()
+			.replace(/^\w/, (c) => c.toUpperCase()),
+		photo: encodeURIComponent(photo.value.trim().toLowerCase()),
+		scores: [
+			q1.value,
+			q2.value,
+			q3.value,
+			q4.value,
+			q5.value,
+			q6.value,
+			q7.value,
+			q8.value,
+			q9.value,
+			q10.value,
+		],
 	}
+
+	console.log(JSON.stringify(friend))
 
 	// Send the POST request.
 	fetch(`/api/friends`, {
@@ -60,17 +116,38 @@ function surveySubmit() {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			document.getElementById('match-name').text(data.name)
-			document.getElementById('match-img').setAttribute('src', data.photo)
-
-			// Show the modal with the best match
-			document.querySelector('#results-modal').modal('toggle')
-
 			// clear the form
+			const inputs = surveyForm.querySelectorAll('input')
+			// console.log(`inputs: ${JSON.stringify(inputs)}`)
+			inputs.forEach((el) => {
+				console.log(`el.classlist: ${el.classList}`)
+				el.classList.remove('success')
+
+				const spanEl = el.parentElement.querySelector('small > span')
+				spanEl.classList.remove('success', 'text-success')
+				spanEl.innerText = ''
+			})
+			const selections = surveyForm.querySelectorAll('select')
+			// console.log(`selection: ${JSON.stringify(selections)}`)
+			selections.forEach((el) => {
+				el.classList.remove('success')
+
+				const spanEl = el.parentElement.querySelector('small > span')
+				spanEl.classList.remove('success', 'text-success')
+				spanEl.innerText = ''
+			})
+
 			surveyForm.reset()
 
 			// set the focus
-			surveyForm['q1'].focus()
+			surveyForm[0].focus()
+
+			// SHOW MODAL
+			// document.getElementById('match-name').innerText = data.name
+			// document.getElementById('match-img').setAttribute('src', data.photo)
+
+			// Show the modal with the best match
+			document.querySelector('#results-modal').classList.add('show')
 		})
 		.catch((error) => {
 			console.error('Error:', error)
@@ -79,7 +156,6 @@ function surveySubmit() {
 
 function init() {
 	const questions = document.querySelectorAll('.ques')
-
 	questions.forEach((q) => {
 		q.classList.add('w-50')
 	})
