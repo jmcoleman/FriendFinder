@@ -24,6 +24,22 @@ header {
 	top: 0;
 }
 
+button.btn {
+	background-color: var(--color-dark);
+	color: white;
+}
+
+.modal img {
+	height: 50px;
+	width: 50px;
+	aspect-ratio: 1;
+}
+
+button.btn:hover {
+	color: white;
+	transform: scale(0.98);
+}
+
 /* error messages for form validation */
 .form-item input.success,
 .form-item select.success {

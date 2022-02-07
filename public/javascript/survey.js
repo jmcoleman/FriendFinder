@@ -43,7 +43,6 @@ const validateForm = () => {
 }
 
 const setFieldInvalid = (el, msg) => {
-	// console.log(`in setFieldInvalid for ${el.id} ...`)
 	el.classList.remove('error', 'success')
 	el.classList.add('error')
 	spanEl = el.nextElementSibling.querySelector('span')
@@ -53,7 +52,9 @@ const setFieldInvalid = (el, msg) => {
 }
 
 const setFieldValid = (el, msg) => {
-	// console.log(`in setFieldValid for ${el.id} ...`)
+	// return to keep from identifying successful validations
+	return
+
 	el.classList.remove('error', 'success')
 	el.classList.add('success')
 	spanEl = el.nextElementSibling.querySelector('span')
@@ -65,7 +66,6 @@ const setFieldValid = (el, msg) => {
 // validate and save the survey
 function surveySubmit(e) {
 	// stop form submission
-	console.log('in surveySubmit')
 	e.preventDefault()
 
 	const name = document.getElementById('name')
@@ -85,10 +85,7 @@ function surveySubmit(e) {
 	if (!validateForm()) return
 
 	const friend = {
-		name: name.value
-			.trim()
-			.toLowerCase()
-			.replace(/^\w/, (c) => c.toUpperCase()),
+		name: name.value.trim().replace(/^\w/, (c) => c.toUpperCase()),
 		photo: encodeURIComponent(photo.value.trim().toLowerCase()),
 		scores: [
 			q1.value,
@@ -104,7 +101,7 @@ function surveySubmit(e) {
 		],
 	}
 
-	console.log(JSON.stringify(friend))
+	// console.log(JSON.stringify(friend))
 
 	// Send the POST request.
 	fetch(`/api/friends`, {
@@ -116,19 +113,20 @@ function surveySubmit(e) {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			// clear the form
+			console.log(`Returned data from api is: ${JSON.stringify(data)}`)
+
 			const inputs = surveyForm.querySelectorAll('input')
-			// console.log(`inputs: ${JSON.stringify(inputs)}`)
+			const selections = surveyForm.querySelectorAll('select')
+
+			// clear the form
 			inputs.forEach((el) => {
-				console.log(`el.classlist: ${el.classList}`)
+				// console.log(`el.classlist: ${el.classList}`)
 				el.classList.remove('success')
 
 				const spanEl = el.parentElement.querySelector('small > span')
 				spanEl.classList.remove('success', 'text-success')
 				spanEl.innerText = ''
 			})
-			const selections = surveyForm.querySelectorAll('select')
-			// console.log(`selection: ${JSON.stringify(selections)}`)
 			selections.forEach((el) => {
 				el.classList.remove('success')
 
@@ -136,18 +134,16 @@ function surveySubmit(e) {
 				spanEl.classList.remove('success', 'text-success')
 				spanEl.innerText = ''
 			})
-
 			surveyForm.reset()
-
 			// set the focus
 			surveyForm[0].focus()
 
-			// SHOW MODAL
-			// document.getElementById('match-name').innerText = data.name
-			// document.getElementById('match-img').setAttribute('src', data.photo)
+			// set the fields for the modal
+			document.getElementById('match-name').innerText = data.name
+			document.getElementById('match-img').setAttribute('src', data.photo)
 
-			// Show the modal with the best match
-			document.querySelector('#results-modal').classList.add('show')
+			// Show the friend with the best match
+			document.getElementById('results-modal').classList.add('show')
 		})
 		.catch((error) => {
 			console.error('Error:', error)
@@ -170,89 +166,3 @@ if (document.readyState == 'loading') {
 	// DOM is ready!
 	init()
 }
-
-// // Chosen CSS
-// var config = {
-// 	'.chosen-select': {},
-// 	'.chosen-select-deselect': {
-// 		allow_single_deselect: true,
-// 	},
-// 	'.chosen-select-no-single': {
-// 		disable_search_threshold: 10,
-// 	},
-// 	'.chosen-select-no-results': {
-// 		no_results_text: 'Oops, nothing found!',
-// 	},
-// 	'.chosen-select-width': {
-// 		width: '95%',
-// 	},
-// }
-
-// for (var selector in config) {
-// 	$(selector).chosen(config[selector])
-// }
-
-// // Capture the form inputs
-// $('#submit').on('click', function (event) {
-// 	event.preventDefault()
-
-// 	// Form validation
-// 	function validateForm() {
-// 		var isValid = true
-
-// 		$('.form-control').each(function () {
-// 			if ($(this).val() === '') {
-// 				isValid = false
-// 			}
-// 		})
-
-// 		$('.chosen-select').each(function () {
-// 			if ($(this).val() === '') {
-// 				isValid = false
-// 			}
-// 		})
-// 		return isValid
-// 	}
-
-// 	// If all required fields are filled
-// 	if (validateForm()) {
-// 		// Create an object for the user"s data
-// 		var userData = {
-// 			name: $('#name').val(),
-// 			photo: $('#photo').val(),
-// 			scores: [
-// 				$('#q1').val(),
-// 				$('#q2').val(),
-// 				$('#q3').val(),
-// 				$('#q4').val(),
-// 				$('#q5').val(),
-// 				$('#q6').val(),
-// 				$('#q7').val(),
-// 				$('#q8').val(),
-// 				$('#q9').val(),
-// 				$('#q10').val(),
-// 			],
-// 		}
-
-// 		// AJAX post the data to the friends API.
-// 		$.post('/api/friends', userData, function (data) {
-// 			// Grab the result from the AJAX post so that the best match's name and photo are displayed.
-// 			$('#match-name').text(data.name)
-// 			$('#match-img').attr('src', data.photo)
-
-// 			// Show the modal with the best match
-// 			$('#results-modal').modal('toggle')
-// 		})
-
-// 		////////////////////////
-// 		// clear the form
-// 		////////////////////////
-// 		$('.form-control').each(function () {
-// 			this.value = ''
-// 		})
-// 		//clears all fields after submit similar to a form reset but for use with CHOOSEN
-// 		$('.chosen-select').val('').trigger('chosen:updated')
-// 	} else {
-// 		alert('Please fill out all fields before submitting!')
-// 	}
-// })

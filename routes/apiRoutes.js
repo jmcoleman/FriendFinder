@@ -1,11 +1,31 @@
 const express = require('express')
 const router = express.Router()
-const path = require('path')
+const { jsonReader, jsonWriter } = require('../utils/files')
+const checkFriendCompatibility = require('../utils/friendCompare')
+const { toCapsFirstEachWord } = require('../utils/generalUtils')
 
-// handle reference to data file path
-const filePath = '../data/'
-const resolvedPath = path.resolve(__dirname, filePath)
-const friends = require(path.join(resolvedPath, 'friends'))
+// ***loads friends from memory referencing data from file path***
+// const fs = require('fs')
+// const path = require('path')
+// const filePath = '../data/'
+// const resolvedPath = path.resolve(__dirname, filePath)
+// const friends = require(path.join(resolvedPath, 'friends'))
+
+//loads friends from file
+let friends = []
+
+jsonReader('../data/friends.json', (err, data) => {
+	if (err) {
+		console.log(err)
+	} else {
+		// console.log(`Data read from file: ${JSON.stringify(data)}`)
+		friends = data
+
+		// modify the read in data and write it out for fun...
+		// data[0].title = 'NEW TEST adding a new property and value'
+		// jsonWriter('../data/output.json', data)
+	}
+})
 
 router
 	.route('/friends')
@@ -16,33 +36,17 @@ router
 		let newFriend = req.body
 
 		// remove spaces from newFriend
-		newFriend.name = newFriend.name.replace(/\s+/g, '')
+		newFriend.name = toCapsFirstEachWord(newFriend.name)
+		// decode the url used for the photo
+		newFriend.photo = decodeURIComponent(newFriend.photo)
+
+		// add new friend
 		friends.push(newFriend)
+		// console.log('amended friends list:')
+		// console.log(JSON.stringify(friends))
+		jsonWriter('../data/friends.json', friends)
 
-		// friend compatibility logic
-		var compatibilityDifference = []
-		var friendMatchValue = 0
-		var bestMatch = {}
-		var bestMatchScore = 999
-
-		// loop thru friends to determine compatibility of each
-		for (i = 0; i < friends.length; i++) {
-			if (newFriend.name !== friends[i].name) {
-				// loop thru all scores of friend to come up with the compatibility
-				for (j = 0; j < friends[i]['scores'].length; j++) {
-					compatibilityDifference[j] = Math.abs(
-						parseInt(newFriend['scores'][j]) - parseInt(friends[i]['scores'][j])
-					)
-					friendMatchValue += compatibilityDifference[j]
-				}
-
-				// keep the best match if lower than current best match
-				if (friendMatchValue < bestMatchScore) {
-					bestMatch = friends[i]
-				}
-			}
-		}
-
+		let bestMatch = checkFriendCompatibility(newFriend, friends)
 		if (bestMatch) {
 			res.json(bestMatch)
 		} else {

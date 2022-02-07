@@ -1,6 +1,6 @@
 let friends = [
 	{
-		name: 'Margo',
+		name: 'MargoMemory',
 		photo: 'https://randomuser.me/api/portraits/women/2.jpg',
 		scores: ['1', '2', '3', '4', '5', '1', '2', '3', '4', '5'],
 	},

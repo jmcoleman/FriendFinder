@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Margo",
+    "photo": "https://randomuser.me/api/portraits/women/2.jpg",
+    "scores": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "name": "Betsy Ross",
+    "photo": "https://ui-avatars.com/api/?name=betsy+ross",
+    "scores": [
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3"
+    ]
+  },
+  {
+    "name": "Matt Bailey",
+    "photo": "https://ui-avatars.com/api/?name=matt+bailey",
+    "scores": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "5",
+      "4",
+      "3",
+      "2",
+      "2"
+    ]
+  },
+  {
+    "name": "Penny Pig",
+    "photo": "https://www.url.com",
+    "scores": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "name": "Kim Kulu",
+    "photo": "http://mee.url.com",
+    "scores": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ]
+  }
+]
