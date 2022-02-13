@@ -18,30 +18,5 @@
 		"name": "User WithInvalidPhoto",
 		"photo": "https:/www.me.url",
 		"scores": ["5", "5", "5", "5", "5", "5", "5", "5", "5", "5"]
-	},
-	{
-		"name": "User 1",
-		"photo": "https://www.url.com",
-		"scores": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
-	},
-	{
-		"name": "User 2",
-		"photo": "https://www.url.com",
-		"scores": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
-	},
-	{
-		"name": "User 3",
-		"photo": "https://www.me.url",
-		"scores": ["3", "3", "3", "3", "3", "3", "3", "3", "3", "3"]
-	},
-	{
-		"name": "User 4",
-		"photo": "https://www.randomuser.me",
-		"scores": ["5", "5", "5", "5", "5", "5", "5", "5", "5", "5"]
-	},
-	{
-		"name": "User 5",
-		"photo": "https://www.me.url",
-		"scores": ["5", "5", "5", "5", "5", "5", "5", "5", "5", "5"]
 	}
 ]

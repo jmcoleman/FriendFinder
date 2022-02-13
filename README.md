@@ -41,7 +41,12 @@ From the website:
 
 1. Go to the Survey
 2. Enter the users name and url to user photo \
-   (An image can be used from https://randomuser.me/api/portraits/men/22.jpg)
+   An image can be used from:
+
+   - https://randomuser.me/api/portraits/men/26.jpg
+   - https://randomuser.me/api/portraits/women/26.jpg
+   - https://ui-avatars.com/api/?name=firstname+lastname
+
 3. Answer survey questions
 4. Submit the survey
 5. A modal will be shown with the friend that has the closest score for compatibility score.
