@@ -1,6 +1,4 @@
-# FriendFinder
-
-Friend Finder
+# Friend Finder
 
 **Problem it solves:** \
 In this day and age, it is difficult to find friends with similar likes and interests. This solution provides a means to find friends that are the most compatible.
