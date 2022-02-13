@@ -48,8 +48,6 @@ From the website:
 
 ## Deployment
 
-The project runs from the browser by specifying http://localhost:3000 after starting node.
-
 The project is hosted on heroku at https://gentle-lowlands-38561.herokuapp.com/
 
 ## Technologies
