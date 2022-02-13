@@ -48,7 +48,7 @@ From the website:
 
 ## Deployment
 
-The project is hosted on heroku at https://gentle-lowlands-38561.herokuapp.com/
+The project is hosted on heroku at https://friend-finder-2022.herokuapp.com/
 
 ## Technologies
 
