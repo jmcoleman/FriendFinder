@@ -1,0 +1,22 @@
+[
+	{
+		"name": "Margo Madison",
+		"photo": "https://randomuser.me/api/portraits/women/2.jpg",
+		"scores": ["1", "2", "3", "4", "5", "1", "2", "3", "4", "5"]
+	},
+	{
+		"name": "Matt Bailey",
+		"photo": "https://ui-avatars.com/api/?name=matt+bailey",
+		"scores": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
+	},
+	{
+		"name": "Betsy Randolph",
+		"photo": "https://ui-avatars.com/api/?name=betsy+randolph",
+		"scores": ["3", "3", "3", "3", "3", "3", "3", "3", "3", "3"]
+	},
+	{
+		"name": "Invalid Photo",
+		"photo": "https:/www.me.url",
+		"scores": ["5", "5", "5", "5", "5", "5", "5", "5", "5", "5"]
+	}
+]

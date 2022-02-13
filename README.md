@@ -3,13 +3,13 @@
 Friend Finder
 
 **Problem it solves:** \
-Identification of a friend that is the most compatible.
+In this day and age, it is difficult to find friends with similar likes and interests. This solution provides a means to find friends that are the most compatible.
 
 **How solved:** \
-By having each friend respond to a short survery and storing the responses, an individual can be alerted to the friend that is closest in compatibility to them after answering the same survey.
+Each friend responds to a short survey and is paired with the friend that is closest in compatibility based on the survey results.
 
 **Technical approach:** \
-Leverages express and node to route survey responses and store friends data. Upon adding a new person, the person with the closest compatibility is shown in a modal. Responses are compared to each other and a difference is calculated and then added up across all responses for an individual. The individual with the closes score to the new person is the most compatible.
+Uses express and node to route survey responses and store friend data. Upon responding to a survey, the person with the closest compatibility is shown in a modal. Responses are compared to each other and a difference is calculated and then added up across all responses for each individual. The individual with the closes score to the survey responder is the most compatible.
 
 ## Getting Started
 
@@ -21,14 +21,19 @@ npm install
 
 # start the server
 node server.js
+or
+npm run start
 
 # navigate to the browser and enter
 https://localhost:3000
 ```
 
-1. Go to Survey
-2. Enter new person
+1. Go to the Survey
+2. Enter survey responses
    Note: an image can be used from https://randomuser.me/api/portraits/men/22.jpg
+3. Submit the survey
+
+A modal will be shown with the friend that has the closest score for compatibility based on the survey responses.
 
 ### Prerequisites
 
@@ -38,37 +43,27 @@ Node and NPM
 
 To get a development environment up and running, clone the repository locally. You will need node installed and npm.
 
-## Running tests
-
-Testing was done against friends with a range of different scores.
-
 ## Deployment
 
-The project should be run from the browser by specifying http://localhost:3000 after starting node.
+The project runs from the browser by specifying http://localhost:3000 after starting node.
 
 The project is hosted on heroku at https://gentle-lowlands-38561.herokuapp.com/
 
 ## Built With
 
-The following npm packages are used: express, path, body-parser
+The following npm packages are used: express, path
 
 **Technologies**\
-JavaScript, Node, HMTL, CSS, Chosen
-
-## Contributing
-
-N/A
+Node, NPM, JavaScript, Express, HMTL 5, CSS3, Bootstrap 5, Font Awesome 6
 
 ## Versioning
 
-This is version 1.0
+Version 1.1
 
 ## Authors
 
-- **Jenni** - initial project
+- **Jenni Coleman**
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-
-## Acknowledgments

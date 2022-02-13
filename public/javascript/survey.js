@@ -1,7 +1,15 @@
 const surveyForm = document.getElementById('friend-survey')
+const surveySubmitBtn = document.getElementById('submit-survey')
+const resultsModal = document.getElementById('results-modal')
+
+const bsModal = new bootstrap.Modal(resultsModal, {
+	backdrop: 'static',
+	keyboard: true,
+	// focus: true,
+})
 
 // validate the form
-const validateForm = () => {
+const validForm = () => {
 	let isValid = true
 
 	// check that the name is valid
@@ -39,6 +47,7 @@ const validateForm = () => {
 		}
 	})
 
+	// console.log('isValid:', isValid)
 	return isValid
 }
 
@@ -52,15 +61,43 @@ const setFieldInvalid = (el, msg) => {
 }
 
 const setFieldValid = (el, msg) => {
-	// return to keep from identifying successful validations
-	return
-
+	// clear the original validations
 	el.classList.remove('error', 'success')
-	el.classList.add('success')
 	spanEl = el.nextElementSibling.querySelector('span')
 	spanEl.classList.remove('error', 'text-danger', 'success', 'text-success')
-	spanEl.classList.add('success', 'text-success')
-	spanEl.innerText = msg || 'Valid value'
+	spanEl.innerText = ''
+
+	// Show field with success
+	// el.classList.add('success')
+	// spanEl.classList.add('success', 'text-success')
+	// spanEl.innerText = msg || 'Valid value'
+}
+
+const clearSurveyForm = () => {
+	const inputs = surveyForm.querySelectorAll('input')
+	const selections = surveyForm.querySelectorAll('select')
+
+	// clear the form
+	inputs.forEach((el) => {
+		// console.log(`el.classlist: ${el.classList}`)
+		el.classList.remove('success')
+
+		const spanEl = el.parentElement.querySelector('small > span')
+		spanEl.classList.remove('success', 'text-success')
+		spanEl.innerText = ''
+	})
+	selections.forEach((el) => {
+		el.classList.remove('success')
+
+		const spanEl = el.parentElement.querySelector('small > span')
+		spanEl.classList.remove('success', 'text-success')
+		spanEl.innerText = ''
+	})
+
+	// reset the form and set the focus
+	surveyForm.reset()
+	surveyForm[0].focus()
+	return
 }
 
 // validate and save the survey
@@ -82,7 +119,12 @@ function surveySubmit(e) {
 	const q10 = surveyForm['q10']
 
 	// if form is not valid, return without submitting the form
-	if (!validateForm()) return
+	if (!validForm()) {
+		let errorFields = surveyForm.getElementsByClassName('error')
+		// console.log('Invalid form ', errorFields[0])
+		errorFields[0].focus()
+		return false
+	}
 
 	const friend = {
 		name: name.value.trim().replace(/^\w/, (c) => c.toUpperCase()),
@@ -101,7 +143,7 @@ function surveySubmit(e) {
 		],
 	}
 
-	// console.log(JSON.stringify(friend))
+	// console.log(`Friend to be saved on servers is: ${JSON.stringify(friend)}`)
 
 	// Send the POST request.
 	fetch(`/api/friends`, {
@@ -113,37 +155,20 @@ function surveySubmit(e) {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(`Returned data from api is: ${JSON.stringify(data)}`)
+			// console.log(`Returned data from api is: ${JSON.stringify(data)}`)
 
-			const inputs = surveyForm.querySelectorAll('input')
-			const selections = surveyForm.querySelectorAll('select')
+			clearSurveyForm()
 
-			// clear the form
-			inputs.forEach((el) => {
-				// console.log(`el.classlist: ${el.classList}`)
-				el.classList.remove('success')
-
-				const spanEl = el.parentElement.querySelector('small > span')
-				spanEl.classList.remove('success', 'text-success')
-				spanEl.innerText = ''
-			})
-			selections.forEach((el) => {
-				el.classList.remove('success')
-
-				const spanEl = el.parentElement.querySelector('small > span')
-				spanEl.classList.remove('success', 'text-success')
-				spanEl.innerText = ''
-			})
-			surveyForm.reset()
-			// set the focus
-			surveyForm[0].focus()
-
-			// set the fields for the modal
-			document.getElementById('match-name').innerText = data.name
-			document.getElementById('match-img').setAttribute('src', data.photo)
-
-			// Show the friend with the best match
-			document.getElementById('results-modal').classList.add('show')
+			// set the fields for the modal and show it
+			document.getElementById('match-name').innerText = data.bestMatch.name
+			document
+				.getElementById('match-img')
+				.setAttribute('src', data.bestMatch.photo)
+			document.getElementById('compatibility-score').innerHTML =
+				data.bestMatch.score
+			document.getElementById('nbr-more-friends').innerText =
+				data.bestMatch.moreFriends
+			bsModal.show()
 		})
 		.catch((error) => {
 			console.error('Error:', error)
@@ -156,7 +181,22 @@ function init() {
 		q.classList.add('w-50')
 	})
 
+	// ADD EVENT LISTENERS
+	resultsModal.addEventListener('shown.bs.modal', () => {
+		// set the focus to the close button when modal opens
+		const closeBtn = document.getElementById('match-result-btn')
+		closeBtn.focus()
+	})
+
+	resultsModal.addEventListener('hidden.bs.modal', () => {
+		surveyForm[0].focus()
+	})
+
 	surveyForm.addEventListener('submit', surveySubmit)
+
+	surveySubmitBtn.addEventListener('click', () => {
+		// console.log('the surveySubmitBtn btn click fired')
+	})
 }
 
 if (document.readyState == 'loading') {

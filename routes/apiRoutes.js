@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { jsonReader, jsonWriter } = require('../utils/files')
+const { jsonReader, jsonWriter, jsonAppend } = require('../utils/files')
 const checkFriendCompatibility = require('../utils/friendCompare')
 const { toCapsFirstEachWord } = require('../utils/generalUtils')
 
@@ -23,7 +23,10 @@ jsonReader('../data/friends.json', (err, data) => {
 
 		// modify the read in data and write it out for fun...
 		// data[0].title = 'NEW TEST adding a new property and value'
-		// jsonWriter('../data/output.json', data)
+		// jsonWriter('../data/output.json', data, false)
+
+		// write out data removing ending array bracket
+		// jsonWriter('../data/output.json', data, true)
 	}
 })
 
@@ -42,13 +45,20 @@ router
 
 		// add new friend
 		friends.push(newFriend)
+
 		// console.log('amended friends list:')
 		// console.log(JSON.stringify(friends))
 		jsonWriter('../data/friends.json', friends)
 
+		// TODO append the newFriend to the output file
+		// jsonAppend('../data/output.json', newFriend, ',')
+
 		let bestMatch = checkFriendCompatibility(newFriend, friends)
 		if (bestMatch) {
-			res.json(bestMatch)
+			res.json({
+				bestMatch: bestMatch,
+				friend: newFriend,
+			})
 		} else {
 			res.status(404).json('Not enough friends to identify a best match.')
 		}

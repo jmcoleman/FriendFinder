@@ -48,240 +48,243 @@
 		</header>
 
 		<div class="container">
-			<h3 class="pt-3">About You</h3>
-
-			<form id="friend-survey" class="">
-				<div class="form-item mb-3">
-					<label for="name" class="mb-1 d-block">Name (Required)</label>
-					<input
-						type="text"
-						id="name"
-						class="form-control w-75 d-inline-block"
-						autofocus
-					/>
-					<small class="d-block">
-						<span class="icon"></span>
-						<!-- <span class="icon success text-success">Success message</span>
+			<div class="justify-content-center">
+				<div class="col-md-8 text-start m-auto">
+					<h3 class="pt-3">About You</h3>
+					<form id="friend-survey" action="POST" class="">
+						<div class="form-item mb-3">
+							<label for="name" class="form-label mb-1 d-block"
+								>Name (Required)</label
+							>
+							<input
+								type="text"
+								id="name"
+								class="form-control w-100 d-inline-block"
+								autofocus
+							/>
+							<small class="d-block">
+								<span class="icon"></span>
+								<!-- <span class="icon success text-success">Success message</span>
 						<span class="icon error text-danger d-none">Error message</span> -->
-					</small>
-				</div>
+							</small>
+						</div>
 
-				<div class="form-item mb-3">
-					<label for="photo" class="mb-1 d-block"
-						>Link to Photo Image (Required)</label
-					>
-					<input
-						type="text"
-						id="photo"
-						class="form-control w-75 d-inline-block"
-					/>
-					<small class="d-block">
-						<span class="icon"></span>
-					</small>
-				</div>
+						<div class="form-item mb-3">
+							<label for="photo" class="form-label mb-1 d-block"
+								>Link to Photo Image (Required)</label
+							>
+							<input
+								type="text"
+								id="photo"
+								class="form-control w-75 d-inline-block"
+							/>
+							<small class="d-block">
+								<span class="icon"></span>
+							</small>
+						</div>
 
-				<hr />
+						<h3>Question 1</h3>
+						<div class="form-item mb-3">
+							<label for="q1" class="form-label mb-1 d-block"
+								>Your mind is always buzzing with unexplored ideas and
+								plans.</label
+							>
+							<select class="form-select ques d-inline-block success" id="q1">
+								<option selected>Choose...</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+							<small class="d-block">
+								<span class="icon"></span>
+							</small>
+						</div>
 
-				<h3>Question 1</h3>
-				<div class="form-item mb-3">
-					<label for="q1" class="mb-1 d-block"
-						>Your mind is always buzzing with unexplored ideas and plans.</label
-					>
-					<select class="form-select ques d-inline-block success" id="q1">
-						<option selected>Choose...</option>
-						<option value="1">1 (Strongly Disagree)</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5 (Strongly Agree)</option>
-					</select>
-					<small class="d-block">
-						<span class="icon"></span>
-					</small>
-				</div>
+						<h3>Question 2</h3>
+						<div class="form-item mb-3">
+							<label for="q2" class="form-label mb-1 d-block"
+								>Generally speaking, you rely more on your experience than your
+								imagination.</label
+							>
+							<select class="form-select ques d-inline-block" id="q2">
+								<option selected>Choose...</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+							<small class="d-block">
+								<span class="icon"></span>
+							</small>
+						</div>
 
-				<h3>Question 2</h3>
-				<div class="form-item mb-3">
-					<label for="q2" class="mb-1 d-block"
-						>Generally speaking, you rely more on your experience than your
-						imagination.</label
-					>
-					<select class="form-select ques d-inline-block" id="q2">
-						<option selected>Choose...</option>
-						<option value="1">1 (Strongly Disagree)</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5 (Strongly Agree)</option>
-					</select>
-					<small class="d-block">
-						<span class="icon"></span>
-					</small>
-				</div>
+						<h3>Question 3</h3>
+						<div class="form-item mb-3">
+							<label for="q3" class="form-label mb-1 d-block"
+								>You find it easy to stay relaxed and focused even when there is
+								some pressure.</label
+							>
+							<select class="form-select ques d-inline-block" id="q3">
+								<option selected>Choose...</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+							<small class="d-block">
+								<span class="icon"></span>
+							</small>
+						</div>
 
-				<h3>Question 3</h3>
-				<div class="form-item mb-3">
-					<label for="q3" class="mb-1 d-block"
-						>You find it easy to stay relaxed and focused even when there is
-						some pressure.</label
-					>
-					<select class="form-select ques d-inline-block" id="q3">
-						<option selected>Choose...</option>
-						<option value="1">1 (Strongly Disagree)</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5 (Strongly Agree)</option>
-					</select>
-					<small class="d-block">
-						<span class="icon"></span>
-					</small>
-				</div>
+						<h3>Question 4</h3>
+						<div class="form-item mb-3">
+							<label for="q4" class="form-label mb-1 d-block"
+								>You rarely do something just out of sheer curiosity.</label
+							>
+							<select class="form-select ques d-inline-block" id="q4">
+								<option selected>Choose...</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+							<small class="d-block">
+								<span class="icon"></span>
+							</small>
+						</div>
 
-				<h3>Question 4</h3>
-				<div class="form-item mb-3">
-					<label for="q4" class="mb-1 d-block"
-						>You rarely do something just out of sheer curiosity.</label
-					>
-					<select class="form-select ques d-inline-block" id="q4">
-						<option selected>Choose...</option>
-						<option value="1">1 (Strongly Disagree)</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5 (Strongly Agree)</option>
-					</select>
-					<small class="d-block">
-						<span class="icon"></span>
-					</small>
-				</div>
+						<h3>Question 5</h3>
+						<div class="form-item mb-3">
+							<label for="q5" class="form-label mb-1 d-block"
+								>People can rarely upset you.</label
+							>
+							<select class="form-select ques d-inline-block" id="q5">
+								<option selected>Choose...</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+							<small class="d-block">
+								<span class="icon"></span>
+							</small>
+						</div>
 
-				<h3>Question 5</h3>
-				<div class="form-item mb-3">
-					<label for="q5" class="mb-1 d-block"
-						>People can rarely upset you.</label
-					>
-					<select class="form-select ques d-inline-block" id="q5">
-						<option selected>Choose...</option>
-						<option value="1">1 (Strongly Disagree)</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5 (Strongly Agree)</option>
-					</select>
-					<small class="d-block">
-						<span class="icon"></span>
-					</small>
-				</div>
+						<h3>Question 6</h3>
+						<div class="form-item mb-3">
+							<label for="q6" class="form-label mb-1 d-block"
+								>It is often difficult for you to relate to other people’s
+								feelings.</label
+							>
+							<select class="form-select ques d-inline-block" id="q6">
+								<option selected>Choose...</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+							<small class="d-block">
+								<span class="icon"></span>
+							</small>
+						</div>
 
-				<h3>Question 6</h3>
-				<div class="form-item mb-3">
-					<label for="q6" class="mb-1 d-block"
-						>It is often difficult for you to relate to other people’s
-						feelings.</label
-					>
-					<select class="form-select ques d-inline-block" id="q6">
-						<option selected>Choose...</option>
-						<option value="1">1 (Strongly Disagree)</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5 (Strongly Agree)</option>
-					</select>
-					<small class="d-block">
-						<span class="icon"></span>
-					</small>
-				</div>
+						<h3>Question 7</h3>
+						<div class="form-item mb-3">
+							<label for="q7" class="form-label mb-1 d-block"
+								>In a discussion, truth should be more important than people’s
+								sensitivities.</label
+							>
+							<select class="form-select ques d-inline-block" id="q7">
+								<option selected>Choose...</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+							<small class="d-block">
+								<span class="icon"></span>
+							</small>
+						</div>
 
-				<h3>Question 7</h3>
-				<div class="form-item mb-3">
-					<label for="q7" class="mb-1 d-block"
-						>In a discussion, truth should be more important than people’s
-						sensitivities.</label
-					>
-					<select class="form-select ques d-inline-block" id="q7">
-						<option selected>Choose...</option>
-						<option value="1">1 (Strongly Disagree)</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5 (Strongly Agree)</option>
-					</select>
-					<small class="d-block">
-						<span class="icon"></span>
-					</small>
-				</div>
+						<h3>Question 8</h3>
+						<div class="form-item mb-3">
+							<label for="q8" class="form-label mb-1 d-block"
+								>You rarely get carried away by fantasies and ideas.</label
+							>
+							<select class="form-select ques d-inline-block" id="q8">
+								<option selected>Choose...</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+							<small class="d-block">
+								<span class="icon"></span>
+							</small>
+						</div>
 
-				<h3>Question 8</h3>
-				<div class="form-item mb-3">
-					<label for="q8" class="mb-1 d-block"
-						>You rarely get carried away by fantasies and ideas.</label
-					>
-					<select class="form-select ques d-inline-block" id="q8">
-						<option selected>Choose...</option>
-						<option value="1">1 (Strongly Disagree)</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5 (Strongly Agree)</option>
-					</select>
-					<small class="d-block">
-						<span class="icon"></span>
-					</small>
-				</div>
+						<h3>Question 9</h3>
+						<div class="form-item mb-3">
+							<label for="q9" class="form-label mb-1 d-block"
+								>You think that everyone’s views should be respected regardless
+								of whether they are supported by facts or not.</label
+							>
+							<select class="form-select ques d-inline-block" id="q9">
+								<option selected>Choose...</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+							<small class="d-block">
+								<span class="icon"></span>
+							</small>
+						</div>
 
-				<h3>Question 9</h3>
-				<div class="form-item mb-3">
-					<label for="q9" class="mb-1 d-block"
-						>You think that everyone’s views should be respected regardless of
-						whether they are supported by facts or not.</label
-					>
-					<select class="form-select ques d-inline-block" id="q9">
-						<option selected>Choose...</option>
-						<option value="1">1 (Strongly Disagree)</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5 (Strongly Agree)</option>
-					</select>
-					<small class="d-block">
-						<span class="icon"></span>
-					</small>
-				</div>
+						<h3>Question 10</h3>
+						<div class="form-item mb-3">
+							<label for="q10" class="form-label mb-1 d-block"
+								>You feel more energetic after spending time with a group of
+								people.</label
+							>
+							<select class="form-select ques d-inline-block" id="q10">
+								<option selected>Choose...</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+							<small class="d-block">
+								<span class="icon"></span>
+							</small>
+						</div>
 
-				<h3>Question 10</h3>
-				<div class="form-item mb-3">
-					<label for="q10" class="mb-1 d-block"
-						>You feel more energetic after spending time with a group of
-						people.</label
-					>
-					<select class="form-select ques d-inline-block" id="q10">
-						<option selected>Choose...</option>
-						<option value="1">1 (Strongly Disagree)</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5 (Strongly Agree)</option>
-					</select>
-					<small class="d-block">
-						<span class="icon"></span>
-					</small>
+						<!-- Submit Button data-bs-toggle="modal"  data-bs-target="#results-modal"-->
+						<div class="text-right">
+							<button
+								type="submit"
+								class="btn btn-lg btn-block"
+								id="submit-survey"
+								data-bs-target="#results-modal"
+							>
+								<i class="far fa-check-circle"></i>
+								Submit
+							</button>
+						</div>
+					</form>
 				</div>
-
-				<!-- Submit Button -->
-				<div class="text-right">
-					<button
-						type="submit"
-						class="btn btn-lg btn-block"
-						id="submit-survey"
-						data-bs-toggle="modal"
-						data-bs-target="#results-modal"
-					>
-						<i class="far fa-check-circle"></i>
-						Submit
-					</button>
-				</div>
-			</form>
+			</div>
 		</div>
 
 		<footer class="footer">
@@ -302,12 +305,18 @@
 			</div>
 		</footer>
 
-		<div id="results-modal" class="modal fade" tabindex="-1">
+		<div
+			id="results-modal"
+			class="modal fade"
+			tabindex="-1"
+			aria-labelledby="modal-title"
+			aria-hidden="true"
+		>
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title">
-							<strong>Best Match</strong>
+							<strong>Friend Match Found</strong>
 						</h5>
 						<button
 							type="button"
@@ -317,7 +326,6 @@
 						></button>
 					</div>
 					<div class="modal-body">
-						<p>The friend that is the most compatible is</p>
 						<div class="d-flex">
 							<img
 								id="match-img"
@@ -325,11 +333,20 @@
 								alt="Photo url"
 								onerror="this.src='../images/defaultAvatar.svg'"
 							/>
-							<h4 class="ms-3" id="match-name"></h4>
+							<h4 class="ms-3 mb-1" id="match-name"></h4>
+						</div>
+						<div class="ms-1 mt-3">
+							<span id="nbr-more-friends"></span> additional friends match with
+							a compatibility score of <span id="compatibility-score"></span>!
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn" data-bs-dismiss="modal">
+						<button
+							id="match-result-btn"
+							type="button"
+							class="btn"
+							data-bs-dismiss="modal"
+						>
 							Close
 						</button>
 					</div>

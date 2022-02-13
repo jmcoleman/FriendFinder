@@ -1,82 +1,47 @@
 [
-  {
-    "name": "Margo",
-    "photo": "https://randomuser.me/api/portraits/women/2.jpg",
-    "scores": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5"
-    ]
-  },
-  {
-    "name": "Betsy Ross",
-    "photo": "https://ui-avatars.com/api/?name=betsy+ross",
-    "scores": [
-      "3",
-      "3",
-      "3",
-      "3",
-      "3",
-      "3",
-      "3",
-      "3",
-      "3",
-      "3"
-    ]
-  },
-  {
-    "name": "Matt Bailey",
-    "photo": "https://ui-avatars.com/api/?name=matt+bailey",
-    "scores": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "5",
-      "4",
-      "3",
-      "2",
-      "2"
-    ]
-  },
-  {
-    "name": "Penny Pig",
-    "photo": "https://www.url.com",
-    "scores": [
-      "1",
-      "1",
-      "1",
-      "1",
-      "1",
-      "1",
-      "1",
-      "1",
-      "1",
-      "1"
-    ]
-  },
-  {
-    "name": "Kim Kulu",
-    "photo": "http://mee.url.com",
-    "scores": [
-      "1",
-      "1",
-      "1",
-      "1",
-      "1",
-      "1",
-      "1",
-      "1",
-      "1",
-      "1"
-    ]
-  }
+	{
+		"name": "Margo Madison",
+		"photo": "https://randomuser.me/api/portraits/women/2.jpg",
+		"scores": ["1", "2", "3", "4", "5", "1", "2", "3", "4", "5"]
+	},
+	{
+		"name": "Matt Bailey",
+		"photo": "https://ui-avatars.com/api/?name=matt+bailey",
+		"scores": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
+	},
+	{
+		"name": "Betsy Randolph",
+		"photo": "https://ui-avatars.com/api/?name=betsy+randolph",
+		"scores": ["3", "3", "3", "3", "3", "3", "3", "3", "3", "3"]
+	},
+	{
+		"name": "User WithInvalidPhoto",
+		"photo": "https:/www.me.url",
+		"scores": ["5", "5", "5", "5", "5", "5", "5", "5", "5", "5"]
+	},
+	{
+		"name": "User 1",
+		"photo": "https://www.url.com",
+		"scores": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
+	},
+	{
+		"name": "User 2",
+		"photo": "https://www.url.com",
+		"scores": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
+	},
+	{
+		"name": "User 3",
+		"photo": "https://www.me.url",
+		"scores": ["3", "3", "3", "3", "3", "3", "3", "3", "3", "3"]
+	},
+	{
+		"name": "User 4",
+		"photo": "https://www.randomuser.me",
+		"scores": ["5", "5", "5", "5", "5", "5", "5", "5", "5", "5"]
+	},
+	{
+		"name": "User 5",
+		"photo": "https://www.me.url",
+		"scores": ["5", "5", "5", "5", "5", "5", "5", "5", "5", "5"]
+	}
 ]
